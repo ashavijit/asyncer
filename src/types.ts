@@ -161,6 +161,35 @@ export interface Controller {
 }
 
 /**
+ * Configuration options for circuit breaker
+ */
+export interface CircuitBreakerOptions {
+  /** Number of failures before tripping the circuit */
+  failureThreshold: number;
+  /** Time in milliseconds to wait before attempting to reset (moving to HALF_OPEN) */
+  resetTimeout: number;
+  /** Number of successes required in HALF_OPEN state to fully close the circuit */
+  successThreshold?: number;
+  /** Function to determine if an error should count towards failure threshold */
+  shouldTrip?: (error: Error) => boolean;
+}
+
+/**
+ * States of a circuit breaker
+ */
+export type CircuitBreakerState = 'CLOSED' | 'OPEN' | 'HALF_OPEN';
+
+/**
+ * Configuration options for bulkhead
+ */
+export interface BulkheadOptions {
+  /** Maximum number of concurrent executions */
+  concurrency: number;
+  /** Maximum number of tasks waiting in queue (optional) */
+  maxQueue?: number;
+}
+
+/**
  * Context store type for AsyncLocalStorage
  */
 export type ContextStore = Map<string, unknown>;

@@ -42,6 +42,9 @@ export type {
   ApiHandlerFn,
   Controller,
   ContextStore,
+  CircuitBreakerOptions,
+  CircuitBreakerState,
+  BulkheadOptions,
 } from './types.js';
 
 // Error utilities
@@ -122,5 +125,12 @@ export {
   createContextKey,
   contextMiddleware,
 } from './context.js';
+
+/* Resilience utilities */
+export {
+  fallback,
+  bulkhead,
+  CircuitBreaker,
+} from './resilience.js';
 
 export type { ContextAccessor } from './context.js';
