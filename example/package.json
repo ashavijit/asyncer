@@ -1,0 +1,12 @@
+{
+    "name": "asyncer-example",
+    "version": "1.0.0",
+    "description": "Example app demonstrating asyncer package usage",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "asyncer": "file:.."
+    }
+}
