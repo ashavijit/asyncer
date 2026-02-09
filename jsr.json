@@ -1,6 +1,6 @@
 {
     "name": "@avijit/asyncer",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Lightweight, framework-agnostic async API utilities for Node.js, Deno, and Bun.",
     "license": "MIT",
     "exports": "./src/index.ts",

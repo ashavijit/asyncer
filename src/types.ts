@@ -190,6 +190,11 @@ export interface BulkheadOptions {
 }
 
 /**
+ * Function signature for a bulkhead runner
+ */
+export type Bulkhead<T> = (task: AsyncTask<T>) => Promise<T>;
+
+/**
  * Context store type for AsyncLocalStorage
  */
 export type ContextStore = Map<string, unknown>;

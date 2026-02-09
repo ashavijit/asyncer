@@ -45,6 +45,7 @@ export type {
   CircuitBreakerOptions,
   CircuitBreakerState,
   BulkheadOptions,
+  Bulkhead,
 } from './types.js';
 
 // Error utilities

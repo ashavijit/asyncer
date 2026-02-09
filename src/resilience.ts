@@ -1,4 +1,4 @@
-import type { AsyncTask, BulkheadOptions, CircuitBreakerOptions, CircuitBreakerState } from './types.js';
+import type { AsyncTask, Bulkhead, BulkheadOptions, CircuitBreakerOptions, CircuitBreakerState } from './types.js';
 import { ApiError } from './error.js';
 
 /**
@@ -21,7 +21,7 @@ export async function fallback<T>(
 /**
  * Bulkhead implementation to limit concurrent executions of a task.
  */
-export function bulkhead<T>(options: BulkheadOptions) {
+export function bulkhead<T>(options: BulkheadOptions): Bulkhead<T> {
   const { concurrency, maxQueue = Infinity } = options;
   let activeCount = 0;
   const queue: Array<{ resolve: (value: T | PromiseLike<T>) => void; reject: (reason?: any) => void; task: AsyncTask<T> }> = [];
